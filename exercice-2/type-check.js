@@ -1,3 +1,6 @@
-function type_check_v1(arg1,type1){
-    return typeof arg1 == type1 
+function type_check_v1(arg,type){
+    return type === getType(arg); 
+}
+function type_check_v2(arg,type){
+
 }
