@@ -65,4 +65,24 @@ function leet(){
     console.log(anaconda);
  }
  leet();
- 
+ function verify(string){
+     return !(string === null || string instanceof Object);
+ }
+ function prop_access(object, string){
+     if(!verify(string)){
+         return object ;
+     }
+     const props =string.split('.');
+     const updated_string=[];
+
+     for (let prop in props){
+         prop =props[prop];
+         updated_string.push(prop);
+
+         if (typeof object [prop] === "undefined"){
+             return updated_string.join(".") + "existe pas";
+         }
+         object =object[prop];
+     }
+     return object ;
+ }
