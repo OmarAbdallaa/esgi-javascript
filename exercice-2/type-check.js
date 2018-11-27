@@ -14,6 +14,11 @@ function type_check_v2(arg1,enumera){
             return false ;
         }
     }
-
-
+    if("value" in enumera && arg1 !== enumera ['value']){
+        return false;
+    }
+    if("enum" in enumera && enumera['enum'].indexOf(arg1) === -1){
+        return false ;
+    }
+    return true;
 }
