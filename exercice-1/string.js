@@ -68,6 +68,16 @@ function leet(){
  function verify(string){
      return !(string === null || string instanceof Object);
  }
+
+ function verlan(string){
+    if(!verify(string)){
+        return '';
+    }
+    const words =string.split('');
+    return words.map(function(word){
+        return word.split('').reverse().join('');
+    }).join(' ')
+ }
  function prop_access(object, string){
      if(!verify(string)){
          return object ;
@@ -80,7 +90,7 @@ function leet(){
          updated_string.push(prop);
 
          if (typeof object [prop] === "undefined"){
-             return updated_string.join(".") + "existe pas";
+             return updated_string.join(".") + "not exist";
          }
          object =object[prop];
      }
