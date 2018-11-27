@@ -24,5 +24,6 @@ function type_check_v2(arg1,enumera){
     return true;
 }
 function type_check(arg1,conf){
-
+    if("type" in conf && typeof arg1 !== conf['type'])
+return false ;
 }
