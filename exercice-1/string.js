@@ -76,7 +76,7 @@ function leet(){
     const words =string.split('');
     return words.map(function(word){
         return word.split('').reverse().join('');
-    }).join(' ')
+    }).join('')
  }
  function prop_access(object, string){
      if(!verify(string)){
