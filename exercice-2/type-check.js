@@ -5,7 +5,7 @@ function type_check_v1(arg,type){
     return typeof arg == type ;
 }
 function type_check_v2(arg1,enumera){
-    
+
     if("type" in  enumera){
         var isArray = enumera ['type'] === 'array';
         if (isArray && !(arg1 instanceof Array)){
@@ -22,4 +22,7 @@ function type_check_v2(arg1,enumera){
         return false ;
     }
     return true;
+}
+function type_check(arg1,conf){
+
 }
