@@ -11,60 +11,37 @@ function capitalize(str)
 }
 console.log(capitalize('hello world'));
 
-function camelCase(str) {
-    
-    str = str.replace(/\w\S*/g, function(txt){
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-    str= str.replace(/\s+/g, '');
-  }
-
-console.log(camelCase("hello world"));
-
-function snake_case(str)
-{
- return str.replace(/ /g,"_", function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-}
-console.log(snake_case('hello world'));
-
-function leet(){ 
-    var anaconda = "anaconda";
- 
-    var spt = anaconda.split('');
- 
- 
-    for(i=0;i<spt.length;i++){
- 
-        switch(spt[i]){
-            case "a":
-            var regex = /a/gi;
-            anaconda = anaconda.replace(regex,"4");
-            break;
-            case "e":
-            var regex = /e/gi;
-            anaconda = anaconda.replace(regex,"3");
-            break;
-            case "i":
-            var regex = /i/gi;
-            anaconda = anaconda.replace(regex,"1");
-            break;
-            case "o":
-            var regex = /o/gi;
-            anaconda = anaconda.replace(regex,"0");
-            break;
-            case "u":
-            var regex = /u/gi;
-            anaconda = anaconda.replace(regex,"_");
-            break;
-            case "y":
-            var regex = /y/gi;
-            anaconda = anaconda.replace(regex,"7");
-            break;
-        }
- 
+function camelCase(string) {
+    if (!verify(string)) {
+        return '';
     }
-    console.log(anaconda);
- }
- leet();
+
+    return string.replace(/\b\w/g, function (l) {
+        return l.toUpperCase()
+    }).replace(/ /g, '');
+}
+
+function snake_case(string) {
+    if (!verify(string)) {
+        return '';
+    }
+
+    return string.toLowerCase().replace(/ /g, '_');
+}
+
+function leet(string) {
+    if (!verify(string)) {
+        return '';
+    }
+
+    const alphabets = {a: "4", e: "3", i: "1", o: "0", u: "(_)", y: "7"};
+
+    Object.keys(alphabets).map(function (key) {
+        string = string.replace(new RegExp(key, 'g'), alphabets[key]);
+    });
+
+    return string;
+}
  function verify(string){
      return !(string === null || string instanceof Object);
  }
